@@ -149,6 +149,7 @@ const data = [
 const articles = document.querySelector('.articles')
 
 function articleMaker (articleObj){
+  //function articleMaker({title,....})
 
   const article = document.createElement('div')
   article.classList.add ('article');

@@ -33,54 +33,27 @@ let menuItems = [
 */
 
 
-// function menuMaker(menuArr) {
-//   const header = document.querySelector ('header')
-
-
-//   const menuDiv = document.createElement("div");
-//   const ulList = document.createElement("ul");
-
-//   menuArr.forEach((menuItemStr) => {
-//     const liElement = document.createElement("li");
-//     liElement.textContent = menuItemStr;
-//     menuList.appendChild(liElement);
-//   });
-
-//   menuList.appendChild(menuList);
-//   menuList.classList.add ("menu")
-//   const menuBtn = document.querySelector(".menu-button");
-  
- 
-//   menuBtn.addEventListener("click", (event) => {
-//     menuList.classList.toggle("menu--open");
-//   });
-//   return menuDiv;
-// }
-// menuMaker(menuItems);
-
-
-
-
-
 const button = document.querySelector ('.menu-button')
 const header = document.querySelector ('.header')
 
-function menuMaker(menuItems){
+function menuMaker(array){
 
   const menu = document.createElement ('div')
   const list = document. createElement ('ul')
-  const li = document.createElement ('li')
+  //const li = document.createElement ('li')
 
   menu.classList.add('menu')
 
   button.appendChild(menu)
   menu.appendChild(list)
-  list.appendChild(li)
 
-  menuItems.forEach(item =>{
-    let text = document.createTextNode(item)
-    li.appendChild(text)
+  
+  //why isn't this outside of big function?
+  array.forEach(item =>{
+    const li = document.createElement ('li')
+    li.textContent= item
     list.appendChild(li)
+    
   })
 
 button.addEventListener ('click', event =>{
@@ -89,5 +62,7 @@ menu.classList.toggle('menu--open')
 
 return menu
 }
+
+
 
 header.appendChild(menuMaker(menuItems))
